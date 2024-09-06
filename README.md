@@ -1,29 +1,45 @@
-## Windows Lite
+## Windows 11 Lite (UUP dumped)
 
-Best possible setup for Windows 11 on older, unsupported PC, no Defender, no apps!
+Get Windows 11 up and running on older, unsupported PCs. No apps, no Defender, and no crappy updates.
 
-### How To
+### How To:
 
-* Get [Windows 11](https://uupdump.net/fetchupd.php?arch=amd64&ring=retail&build=22621.1), version 22H2 (22621.1), Home N (the smallest available)
+- Get [__Windows 11__](https://uupdump.net/fetchupd.php?arch=amd64&ring=retail&build=22621.1), 22H2 (22621.1), Home N is the lightest.
 
-* Replace the UUP script config with this [ConvertConfig](ConvertConfig.ini)
+- Run 'uup_download_windows.cmd' first to download the UUP files.
 
-* Run 'uup_download_windows' and wait for the WIM to be built
+- Edit 'convert-UUP.cmd' to set faster XPRESS compression:
 
-* Export installed drivers to add to the setup:
+  ``if %WIMFILE%==install.wim set _rrr=%_rrr% --compress=FAST``
 
-  ``DISM /Online /Export-Driver /Destination:C:\Drivers``
+  You'll find the conversion options commented in the script.
 
-* Get [NTLite](https://www.ntlite.com/download/) and load this [Preset](NTLite.xml) as is without edits
+- Replace 'ConvertConfig.ini' with the one from my repo to get the setup as intended.
 
-* Set your language and keyboard in 'Unattended\OOBE\Windows localization'
+- Get [__NTLite__](www.ntlite.com/download/) to optimize your WIM image and set up an unattended installation.
 
-* Save changes to WIM image and apply it to a disk partition using DISM:
+  Add a new partition, possibly at the end of the disk, to speed things up and avoid any hiccups.
+ 
+- Edit 'NTLite\settings.xml' to change default paths and set XPRESS compression:
 
-  ``DISM /Apply-Image /Imagefile:D:\22621.1_amd64\install.wim /Index:1 /ApplyDir:E: /Compact``
+  `<WimCompression>1</WimCompression>`
 
-  Installing via DVD/USB is unsupported without [AveYo](https://github.com/AveYo/MediaCreationTool.bat/tree/main/bypass11) hacks
+- Load 'sources\install.wim' and apply my 'NTLite.xml' preset as is.
 
-* Get [EasyBCD](https://neosmart.net/Download/Register) and a new boot entry (set it as default)
+- Export and append the installed drivers:
 
-* Finally reboot to complete the installation.
+  `DISM /Online /Export-Driver /Destination:C:\Drivers`
+
+- Set the language and keyboard layout in 'Unattended\OOBE\Windows localization'.
+
+- Apply the changes to the image, it will take some time.
+
+- Format the installation partition and extract the image now:
+
+  `DISM /Apply-Image /Imagefile:D:\install.wim /Index:1 /ApplyDir:E: /Compact`
+
+- Get [__EasyBCD__](neosmart.net/EasyBCD/) to add a new boot entry, set it as default.
+
+- Finally, reboot to complete the installation.
+
+If you find this useful, please give it a star️. Thanks!

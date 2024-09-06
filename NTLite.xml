@@ -3,7 +3,7 @@
 	<AppInfo>
 	</AppInfo>
 	<ImageInfo>
-		<Version mode="offline">Windows 11 Core (22H2) x64 - 10.0.22621.1 (en-US)</Version>
+		<Version mode="offline">Windows 11 CoreN 22H2 x64</Version>
 	</ImageInfo>
 	<RemoveComponents AppRemovalMode="DISM">
 		<c>assembly.net ''</c>
