@@ -1,0 +1,13 @@
+<sizer>
+    <config gridSize="10" showIconInSystemTray="1" showTooltipOnResize="1" addItemsToSystemMenu="1" adjustOppositeCorner="0" />
+    <sizes entries="10">
+        <size description="[Chrome]" height="720" width="720" relocateFlags="6" />
+        <size description="[Explorer]" height="600" width="900" relocateFlags="5" />
+        <size description="[VMware]" height="662" width="1032" relocateFlags="5" />
+        <size description="1280x720" height="720" width="1280" relocateFlags="5" />
+        <size description="1024x640" height="640" width="1024" relocateFlags="5" />
+        <size description="960x540" height="540" width="960" relocateFlags="5" />
+        <size description="900x600" height="600" width="800" relocateFlags="5" />
+        <size description="640x480" height="480" width="640" relocateFlags="5" />
+    </sizes>
+</sizer>

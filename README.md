@@ -18,7 +18,7 @@ Get Windows 11 up and running on older, unsupported PCs. No apps, no Defender, a
 
 - Get [__NTLite__](www.ntlite.com/download/) to optimize your WIM image and set up an unattended installation.
 
-  Add a new partition, possibly at the end of the disk, to speed things up and avoid any hiccups.
+- Add a new partition, possibly at the end of the disk, to speed things up and avoid any hiccups.
  
 - Edit 'NTLite\settings.xml' to change default paths and set XPRESS compression:
 
